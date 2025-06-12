@@ -1,4 +1,3 @@
-// routes/horoscope.js
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -6,7 +5,43 @@ const mockHoroscopes = require('../utils/mockHoroscopes');
 
 const userHistory = {}; // In-memory store for demo
 
-// GET /horoscope/today
+/**
+ * @swagger
+ * tags:
+ *   name: Horoscope
+ *   description: Fetch daily and historical horoscopes
+ */
+
+/**
+ * @swagger
+ * /horoscope/today:
+ *   get:
+ *     summary: Get today’s horoscope based on user’s zodiac sign
+ *     tags: [Horoscope]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved today's horoscope
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 date:
+ *                   type: string
+ *                   example: "2025-06-13"
+ *                 zodiac:
+ *                   type: string
+ *                   example: "Gemini"
+ *                 horoscope:
+ *                   type: string
+ *                   example: "Your curiosity will lead to great insights."
+ *       401:
+ *         description: Unauthorized (missing or invalid token)
+ *       500:
+ *         description: Internal server error
+ */
 router.get('/today', async (req, res) => {
   try {
     const userId = req.user.userId; // from verifyToken
@@ -29,7 +64,41 @@ router.get('/today', async (req, res) => {
   }
 });
 
-// GET /horoscope/history
+/**
+ * @swagger
+ * /horoscope/history:
+ *   get:
+ *     summary: Get the last 7 days of horoscope history
+ *     tags: [Horoscope]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved history
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 history:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       date:
+ *                         type: string
+ *                         example: "2025-06-13"
+ *                       zodiac:
+ *                         type: string
+ *                         example: "Gemini"
+ *                       horoscope:
+ *                         type: string
+ *                         example: "Your curiosity will lead to great insights."
+ *       401:
+ *         description: Unauthorized (missing or invalid token)
+ *       500:
+ *         description: Internal server error
+ */
 router.get('/history', async (req, res) => {
   try {
     const userId = req.user.userId;

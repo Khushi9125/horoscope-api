@@ -41,7 +41,8 @@ A Node.js backend service that provides daily horoscopes based on a user's zodia
 
 ---
 
-*You should see:*
+*Yoooo!!!! You are almost there. You should see like this:*
+
     - 🚀 Server started on http://localhost:3000
 
 ---
@@ -69,4 +70,11 @@ A Node.js backend service that provides daily horoscopes based on a user's zodia
 - **Zodiac Detection**: Birthdate is parsed during signup using a helper utility to determine the zodiac sign automatically.
 - **Mock Horoscope**: Horoscope texts are stored in a local file (`utils/mockHoroscopes.js`) to simulate real API/database responses.
 - **Rate Limiting**: Middleware is applied globally to prevent abuse and excessive requests.
+
+## 🚀 Improvements for future
+
+- Connect to a real horoscope API or database for dynamic content.
+- Add Swagger/OpenAPI documentation.
+- Implement refresh token logic for JWT.
+- Add user profile update APIs.
 

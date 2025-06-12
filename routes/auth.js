@@ -1,4 +1,3 @@
-// routes/auth.js
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -7,16 +6,59 @@ const { getZodiacSign } = require('../utils/zodiac');
 
 const router = express.Router();
 
-// Signup Route
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: User authentication
+ */
+
+/**
+ * @swagger
+ * /auth/signup:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - birthdate
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Khushi Kashyap
+ *               email:
+ *                 type: string
+ *                 example: khushi@example.com
+ *               password:
+ *                 type: string
+ *                 example: yourPassword123
+ *               birthdate:
+ *                 type: string
+ *                 format: date
+ *                 example: 1998-07-21
+ *     responses:
+ *       201:
+ *         description: Signup successful
+ *       400:
+ *         description: User already exists
+ *       500:
+ *         description: Server error
+ */
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password, birthdate } = req.body;
 
-    // Check if user exists
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: 'User already exists' });
 
-    // Get zodiac sign from birthdate
     const zodiacSign = getZodiacSign(new Date(birthdate));
 
     const user = new User({ name, email, password, birthdate, zodiacSign });
@@ -28,7 +70,38 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login Route
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login an existing user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: khushi@example.com
+ *               password:
+ *                 type: string
+ *                 example: yourPassword123
+ *     responses:
+ *       200:
+ *         description: Login successful, returns JWT token
+ *       401:
+ *         description: Invalid credentials
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
