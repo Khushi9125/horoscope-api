@@ -1,16 +1,16 @@
 // utils/mockHoroscopes.js
 
 module.exports = {
-  Aries: "Be bold today, Aries. Good fortune is near.",
-  Taurus: "Find peace in stability. Avoid risky decisions.",
-  Gemini: "Your curiosity will lead to great insights.",
-  Cancer: "Embrace your emotions. A good friend needs you.",
-  Leo: "Your charm will light up the room. Shine on!",
-  Virgo: "Details matter today. Organize your thoughts.",
-  Libra: "Seek balance. A new opportunity may surprise you.",
-  Scorpio: "Follow your instincts. Something powerful is coming.",
-  Sagittarius: "Adventure is close. Be ready to explore.",
-  Capricorn: "Hard work pays off. Your persistence is noticed.",
-  Aquarius: "Think outside the box. Your ideas are gold.",
-  Pisces: "Let your intuition guide you. Creativity is high."
+  Aries: "Be bold and take charge—today, divine energy surrounds your decisions. Trust that the universe is backing you.",
+  Taurus: "Steadiness brings divine blessings. Take a moment for prayer or quiet reflection—you’ll find strength there.",
+  Gemini: "Your curiosity is a gift from above. Ask, and answers will come—perhaps in the most unexpected ways.",
+  Cancer: "You are divinely protected. Offer kindness today; your faith and compassion will uplift someone’s soul.",
+  Leo: "You were born to shine—carry your light with grace. The divine sees your effort and rewards are near.",
+  Virgo: "Even the smallest details are part of a larger plan. A moment of worship may bring clarity to a question you’ve held.",
+  Libra: "Balance your day with a moment of gratitude. The divine is aligning something beautiful for you.",
+  Scorpio: "You are transforming—just like nature obeys divine timing, so should you. Trust in the process and pray with intention.",
+  Sagittarius: "Your journey is blessed. Say a short prayer before your next step—it may open doors beyond logic.",
+  Capricorn: "Your hard work is sacred. The divine favors the disciplined. Stay faithful to your purpose.",
+  Aquarius: "Your vision is a gift from the divine. Let spiritual guidance flow into your ideas and conversations today.",
+  Pisces: "Your intuition is a whisper from the divine. Spend time in meditation or worship—answers will find you."
 };
